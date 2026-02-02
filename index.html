@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutor Disequazione</title>
+
+  <!-- favicon (se hai già i file nella stessa cartella) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="card">
+    <header class="top">
+      <h1>Tutor Disequazione #54</h1>
+      <p class="subtitle">Risolviamo disequazione numero 54 pagina 215 - prima tutorial, poi quiz</p>
+    </header>
+
+    <section class="box">
+      <h2>Disequazione</h2>
+      <div class="math">2 cos²x + 3 sin x ≥ 3</div>
+    </section>
+
+    <!-- Regole rapide in griglia (tag a sinistra, frase a destra) -->
+    <section class="box">
+      <h2>Regole rapide</h2>
+
+      <div class="rulesGrid">
+        <span class="badge warn tag">⚠ Attenzione</span>
+        <span class="badge">Se moltiplichi/dividi per un numero negativo, il verso cambia</span>
+
+        <span class="badge info tag">💭 Trucco</span>
+        <span class="badge">Pongo t = sin x per ottenere una disequazione di 2° grado</span>
+
+        <span class="badge ok tag">✅ Regola</span>
+        <span class="badge">Se a &gt; 0, allora (≤ 0) vale tra le radici (incluso)</span>
+
+        <span class="badge info tag">🔁 Periodicità</span>
+        <span class="badge">sin(x) si ripete ogni 2π → aggiungo +2kπ</span>
+      </div>
+    </section>
+
+    <!-- MODALITÀ: tutorial (default) → quiz (irrevocabile in UI) -->
+    <section class="box modeWrap">
+
+      <!-- Radio modalità (nascosti). Non mettiamo nessun bottone per tornare al tutorial -->
+      <input type="radio" name="mode" id="modeTutorial" checked>
+      <input type="radio" name="mode" id="modeQuiz">
+
+      <!-- ====== TUTORIAL ====== -->
+      <div class="tutorialMode">
+        <h2 class="modeTitle">Tutorial guidato</h2>
+        <p class="modeSub">Segui i passaggi, poi alla fine potrai provare il quiz.</p>
+
+        <section class="wizard tutWizard">
+          <!-- pagine tutorial -->
+          <input type="radio" name="tpage" id="tpage1" checked>
+          <input type="radio" name="tpage" id="tpage2">
+          <input type="radio" name="tpage" id="tpage3">
+          <input type="radio" name="tpage" id="tpage4">
+          <input type="radio" name="tpage" id="tpage5">
+          <input type="radio" name="tpage" id="tpage6">
+          <input type="radio" name="tpage" id="tpage7">
+
+          <nav class="pager">
+            <label class="chip" for="tpage1">1</label>
+            <label class="chip" for="tpage2">2</label>
+            <label class="chip" for="tpage3">3</label>
+            <label class="chip" for="tpage4">4</label>
+            <label class="chip" for="tpage5">5</label>
+            <label class="chip" for="tpage6">6</label>
+            <label class="chip chipFinal" for="tpage7">Fine</label>
+          </nav>
+
+          <div class="tpages">
+
+            <section id="tp1" class="page box">
+              <h3>Passo 1 — Riscrivo cos²x</h3>
+              <p class="explain">
+                L’obiettivo è avere una disequazione solo in <b>sin x</b>.
+                Uso l’identità:
+              </p>
+              <div class="math">cos²x = 1 − sin²x</div>
+
+              <div class="actions">
+                <label class="btn" for="tpage2">Avanti</label>
+              </div>
+            </section>
+
+            <section id="tp2" class="page box">
+              <h3>Passo 2 — Sostituisco e semplifico</h3>
+              <p class="explain">Sostituisco cos²x con (1 − sin²x) e porto tutto a sinistra.</p>
+              <div class="math">2(1 − sin²x) + 3 sin x ≥ 3
+2 − 2 sin²x + 3 sin x − 3 ≥ 0
+−2 sin²x + 3 sin x − 1 ≥ 0</div>
+
+              <div class="actions">
+                <label class="btn secondary" for="tpage1">Indietro</label>
+                <label class="btn" for="tpage3">Avanti</label>
+              </div>
+            </section>
+
+            <section id="tp3" class="page box">
+              <h3>Passo 3 — Cambio segno (attenzione al verso)</h3>
+              <p class="explain">
+                Moltiplico per −1 per rendere positivo il coefficiente del termine quadratico.
+                <b>Ma il verso cambia!</b>
+              </p>
+
+              <div class="badges">
+                <span class="badge warn">⚠ Attenzione</span>
+                <span class="badge">Se moltiplichi/dividi per un numero negativo, il verso cambia</span>
+              </div>
+
+              <div class="math">−2 sin²x + 3 sin x − 1 ≥ 0
+⇓ (× −1, verso cambia)
+2 sin²x − 3 sin x + 1 ≤ 0</div>
+
+              <div class="actions">
+                <label class="btn secondary" for="tpage2">Indietro</label>
+                <label class="btn" for="tpage4">Avanti</label>
+              </div>
+            </section>
+
+            <section id="tp4" class="page box">
+              <h3>Passo 4 — Sostituzione t = sin x</h3>
+              <p class="explain">
+                Per trasformarla in una disequazione di 2° grado, pongo <b>t = sin x</b>.
+              </p>
+
+              <div class="badges">
+                <span class="badge info">💭 Trucco</span>
+                <span class="badge">Pongo t = sin x per ottenere una disequazione di 2° grado</span>
+              </div>
+
+              <div class="math">2 sin²x − 3 sin x + 1 ≤ 0
+⇒ 2t² − 3t + 1 ≤ 0</div>
+
+              <div class="actions">
+                <label class="btn secondary" for="tpage3">Indietro</label>
+                <label class="btn" for="tpage5">Avanti</label>
+              </div>
+            </section>
+
+            <section id="tp5" class="page box">
+              <h3>Passo 5 — Risolvo la disequazione in t</h3>
+              <p class="explain">
+                Fattorizzo e trovo le radici: t = 1/2 e t = 1.
+                Siccome a &gt; 0 e ho ≤ 0, la soluzione è <b>tra le radici</b>.
+              </p>
+
+              <div class="badges">
+                <span class="badge ok">✅ Regola</span>
+                <span class="badge">Se a &gt; 0, allora (≤ 0) vale tra le radici (incluso)</span>
+              </div>
+
+              <div class="math">2t² − 3t + 1 = (2t − 1)(t − 1)
+⇒ (2t − 1)(t − 1) ≤ 0
+⇒ t ∈ [1/2, 1]</div>
+
+              <div class="actions">
+                <label class="btn secondary" for="tpage4">Indietro</label>
+                <label class="btn" for="tpage6">Avanti</label>
+              </div>
+            </section>
+
+            <section id="tp6" class="page box">
+              <h3>Passo 6 — Torno a x nel periodo [0, 2π)</h3>
+              <p class="explain">
+                Ora sostituisco t = sin x:
+                <b>sin x ∈ [1/2, 1]</b>.
+                Nel periodo [0,2π), sin x = 1/2 in <b>π/6</b> e <b>5π/6</b>.
+                Tra questi due angoli, il seno sta tra 1/2 e 1.
+              </p>
+
+              <div class="math">sin x ∈ [1/2, 1]
+⇒ x ∈ [π/6, 5π/6]  (in [0,2π))</div>
+
+              <div class="actions">
+                <label class="btn secondary" for="tpage5">Indietro</label>
+                <label class="btn" for="tpage7">Avanti</label>
+              </div>
+            </section>
+
+            <section id="tp7" class="page box">
+              <h3>✅ Tutorial concluso</h3>
+              <p class="explain">
+                Per ottenere tutte le soluzioni su ℝ uso la periodicità del seno (periodo 2π).
+              </p>
+
+              <div class="badges">
+                <span class="badge info">🔁 Periodicità</span>
+                <span class="badge">sin(x) si ripete ogni 2π → aggiungo +2kπ</span>
+              </div>
+
+              <div class="math big">Soluzione generale:
+x ∈ [π/6 + 2kπ, 5π/6 + 2kπ],   k ∈ ℤ</div>
+
+              <p class="lockNote">
+                Quando premi “Tenta il quiz” passerai alla modalità quiz e non potrai tornare al tutorial.
+              </p>
+
+              <div class="actions">
+                <label class="btn secondary" for="tpage6">Indietro</label>
+                <label class="btn" for="modeQuiz">Tenta il quiz</label>
+              </div>
+            </section>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- ====== QUIZ ====== -->
+      <div class="quizMode">
+        <h2 class="modeTitle">Quiz</h2>
+        <p class="modeSub">Scegli la risposta migliore. Il feedback appare subito sotto.</p>
+
+        <section class="wizard quizWizard">
+          <input type="radio" name="page" id="page1" checked>
+          <input type="radio" name="page" id="page2">
+          <input type="radio" name="page" id="page3">
+          <input type="radio" name="page" id="page4">
+          <input type="radio" name="page" id="page5">
+          <input type="radio" name="page" id="page6">
+          <input type="radio" name="page" id="page7">
+
+          <nav class="pager">
+            <label class="chip" for="page1">1</label>
+            <label class="chip" for="page2">2</label>
+            <label class="chip" for="page3">3</label>
+            <label class="chip" for="page4">4</label>
+            <label class="chip" for="page5">5</label>
+            <label class="chip" for="page6">6</label>
+            <label class="chip chipFinal" for="page7">Fine</label>
+          </nav>
+
+          <div class="pages">
+
+            <!-- QUIZ PAGINA 1 -->
+            <section id="p1" class="page box">
+              <h2>Passo 1 — Identità</h2>
+              <div class="math">2 cos²x + 3 sin x ≥ 3</div>
+              <p class="explain">Conviene riscrivere cos²x usando un’identità, così lavoriamo solo con sin x.</p>
+
+              <h3 class="qtitle">Domanda</h3>
+              <p class="question">Quale identità conviene usare?</p>
+
+              <div class="quiz">
+                <input id="p1a" type="radio" name="q1">
+                <label for="p1a" class="opt">cos²x = 1 − sin²x</label>
+                <div class="fb good">✅ Giusto: così ottieni una disequazione in sola sin x.</div>
+
+                <input id="p1b" type="radio" name="q1">
+                <label for="p1b" class="opt">tan x = sin x / cos x</label>
+                <div class="fb bad">❌ No: la tangente complica e introduce problemi di dominio.</div>
+
+                <input id="p1c" type="radio" name="q1">
+                <label for="p1c" class="opt">sin²x = 1 + cos²x</label>
+                <div class="fb bad">❌ No: l’identità corretta non ha il +.</div>
+              </div>
+
+              <div class="actions">
+                <label class="btn" for="page2">Avanti</label>
+              </div>
+            </section>
+
+            <!-- QUIZ PAGINA 2 -->
+            <section id="p2" class="page box">
+              <h2>Passo 2 — Sostituzione</h2>
+              <div class="math">2(1 − sin²x) + 3 sin x ≥ 3</div>
+              <p class="explain">Sostituisco cos²x con (1 − sin²x). Ora sviluppo e porto tutto a sinistra.</p>
+
+              <h3 class="qtitle">Domanda</h3>
+              <p class="question">Cosa fai adesso?</p>
+
+              <div class="quiz">
+                <input id="p2a" type="radio" name="q2">
+                <label for="p2a" class="opt">Sviluppo e porto tutto a sinistra</label>
+                <div class="fb good">✅ Esatto: è il passo più pulito.</div>
+
+                <input id="p2b" type="radio" name="q2">
+                <label for="p2b" class="opt">Divido tutto per sin x</label>
+                <div class="fb bad">❌ No: sin x può essere 0 o negativo, e cambierebbe il problema.</div>
+
+                <input id="p2c" type="radio" name="q2">
+                <label for="p2c" class="opt">Faccio la radice di entrambi i membri</label>
+                <div class="fb bad">❌ No: qui non serve la radice.</div>
+              </div>
+
+              <div class="actions">
+                <label class="btn secondary" for="page1">Indietro</label>
+                <label class="btn" for="page3">Avanti</label>
+              </div>
+            </section>
+
+            <!-- QUIZ PAGINA 3 -->
+            <section id="p3" class="page box">
+              <h2>Passo 3 — Riordino</h2>
+              <div class="math">2 − 2 sin²x + 3 sin x − 3 ≥ 0
+⇒ −2 sin²x + 3 sin x − 1 ≥ 0</div>
+
+              <p class="explain">Ora conviene moltiplicare per −1, ma ricordati: il verso cambia.</p>
+
+              <div class="badges">
+                <span class="badge warn">⚠ Attenzione</span>
+                <span class="badge">Se moltiplichi/dividi per un numero negativo, il verso cambia</span>
+              </div>
+
+              <h3 class="qtitle">Domanda</h3>
+              <p class="question">Se moltiplico per −1 cosa succede?</p>
+
+              <div class="quiz">
+                <input id="p3a" type="radio" name="q3">
+                <label for="p3a" class="opt">Il verso NON cambia</label>
+                <div class="fb bad">❌ No: con un numero negativo il verso si inverte.</div>
+
+                <input id="p3b" type="radio" name="q3">
+                <label for="p3b" class="opt">Il verso cambia (≥ diventa ≤)</label>
+                <div class="fb good">✅ Giusto: è una regola fondamentale.</div>
+
+                <input id="p3c" type="radio" name="q3">
+                <label for="p3c" class="opt">Spariscono seno e coseno</label>
+                <div class="fb bad">❌ No: cambiano solo i segni.</div>
+              </div>
+
+              <div class="actions">
+                <label class="btn secondary" for="page2">Indietro</label>
+                <label class="btn" for="page4">Avanti</label>
+              </div>
+            </section>
+
+            <!-- QUIZ PAGINA 4 -->
+            <section id="p4" class="page box">
+              <h2>Passo 4 — Disequazione di 2° grado</h2>
+              <div class="math">2 sin²x − 3 sin x + 1 ≤ 0</div>
+              <p class="explain">Pongo <b>t = sin x</b> ⇒ <b>2t² − 3t + 1 ≤ 0</b>.</p>
+
+              <div class="badges">
+                <span class="badge info">💭 Trucco</span>
+                <span class="badge">Pongo t = sin x per ottenere una disequazione di 2° grado</span>
+              </div>
+
+              <h3 class="qtitle">Domanda</h3>
+              <p class="question">Con t = sin x, cosa ottieni?</p>
+
+              <div class="quiz">
+                <input id="p4a" type="radio" name="q4">
+                <label for="p4a" class="opt">2t² − 3t + 1 ≤ 0</label>
+                <div class="fb good">✅ Esatto.</div>
+
+                <input id="p4b" type="radio" name="q4">
+                <label for="p4b" class="opt">2t² − 3t + 1 ≥ 0</label>
+                <div class="fb bad">❌ No: il verso è ≤.</div>
+
+                <input id="p4c" type="radio" name="q4">
+                <label for="p4c" class="opt">2t + 3 + 1 ≤ 0</label>
+                <div class="fb bad">❌ No: non puoi togliere i quadrati così.</div>
+              </div>
+
+              <div class="actions">
+                <label class="btn secondary" for="page3">Indietro</label>
+                <label class="btn" for="page5">Avanti</label>
+              </div>
+            </section>
+
+            <!-- QUIZ PAGINA 5 -->
+            <section id="p5" class="page box">
+              <h2>Passo 5 — Fattorizzo</h2>
+              <div class="math">2t² − 3t + 1 = (2t − 1)(t − 1)
+⇒ (2t − 1)(t − 1) ≤ 0</div>
+
+              <p class="explain">Radici: t = 1/2 e t = 1. Parabola verso l’alto ⇒ ≤ 0 tra le radici.</p>
+
+              <div class="badges">
+                <span class="badge ok">✅ Regola</span>
+                <span class="badge">Se a &gt; 0, allora (≤ 0) vale tra le radici (incluso)</span>
+              </div>
+
+              <h3 class="qtitle">Domanda</h3>
+              <p class="question">Qual è l’intervallo soluzione per t?</p>
+
+              <div class="quiz">
+                <input id="p5a" type="radio" name="q5">
+                <label for="p5a" class="opt">t ≤ 1/2 oppure t ≥ 1</label>
+                <div class="fb bad">❌ No: quello è il caso ≥ 0 (fuori dalle radici).</div>
+
+                <input id="p5b" type="radio" name="q5">
+                <label for="p5b" class="opt">1/2 ≤ t ≤ 1</label>
+                <div class="fb good">✅ Giusto: tra le radici, estremi inclusi.</div>
+
+                <input id="p5c" type="radio" name="q5">
+                <label for="p5c" class="opt">t ≥ 1/2 (senza limite)</label>
+                <div class="fb bad">❌ No: manca il limite superiore.</div>
+              </div>
+
+              <div class="actions">
+                <label class="btn secondary" for="page4">Indietro</label>
+                <label class="btn" for="page6">Avanti</label>
+              </div>
+            </section>
+
+            <!-- QUIZ PAGINA 6 -->
+            <section id="p6" class="page box">
+              <h2>Passo 6 — Nel periodo [0, 2π)</h2>
+              <div class="math">sin x ∈ [1/2, 1]
+⇒ x ∈ [π/6, 5π/6]  (nel periodo [0,2π))</div>
+              <p class="explain">sin x = 1/2 in π/6 e 5π/6. Tra questi due angoli il seno sta tra 1/2 e 1.</p>
+
+              <div class="actions">
+                <label class="btn secondary" for="page5">Indietro</label>
+                <label class="btn" for="page7">Vai alla conclusione</label>
+              </div>
+            </section>
+
+            <!-- QUIZ FINALE -->
+            <section id="finale" class="page box final">
+              <h2>✅ Disequazione conclusa</h2>
+
+              <div class="math big">SOLUZIONE COMPLETA:
+
+x ∈ [π/6 + 2kπ, 5π/6 + 2kπ],   k ∈ ℤ</div>
+
+              <p class="explain">
+                L’intervallo [π/6, 5π/6] è la soluzione nel periodo [0, 2π).
+                Siccome il seno è periodico, la soluzione si ripete aggiungendo 2kπ.
+              </p>
+
+              <div class="badges">
+                <span class="badge info">🔁 Periodicità</span>
+                <span class="badge">sin(x) si ripete ogni 2π → aggiungo +2kπ</span>
+              </div>
+
+              <h3 class="qtitle">Visuale sulla circonferenza goniometrica</h3>
+              <p class="hint">Arco evidenziato = soluzione nel periodo [0, 2π).</p>
+
+              <div class="svgWrap">
+                <svg viewBox="0 0 360 360" width="100%" height="360" role="img" aria-label="Circonferenza goniometrica">
+                  <rect x="0" y="0" width="360" height="360" class="svgBg"></rect>
+                  <line x1="30" y1="180" x2="330" y2="180" class="axis"/>
+                  <line x1="180" y1="30" x2="180" y2="330" class="axis"/>
+                  <circle cx="180" cy="180" r="120" class="circle"/>
+
+                  <line x1="60" y1="120" x2="300" y2="120" class="yhalf"/>
+                  <text x="62" y="110" class="label">y = 1/2</text>
+
+                  <path d="M 283.92 120.00 A 120 120 0 0 0 76.08 120.00" class="arc"/>
+                  <circle cx="283.92" cy="120.00" r="6" class="pt"/>
+                  <circle cx="76.08" cy="120.00" r="6" class="pt"/>
+
+                  <text x="292" y="108" class="labelStrong">π/6</text>
+                  <text x="24" y="108" class="labelStrong">5π/6</text>
+
+                  <g class="legendGroup">
+                    <rect x="24" y="312" width="312" height="34" class="legendBg"></rect>
+                    <line x1="38" y1="329" x2="78" y2="329" class="legendLine"></line>
+                    <text x="88" y="334" class="legendText">Zona soluzione nel periodo [0, 2π)</text>
+                  </g>
+                </svg>
+              </div>
+
+              <p class="credits">Sviluppato da Federico Agostinone e Daniele Spada</p>
+
+              <div class="actions">
+                <label class="btn secondary" for="page6">Indietro</label>
+                <label class="btn" for="page1">Ricomincia</label>
+              </div>
+            </section>
+
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

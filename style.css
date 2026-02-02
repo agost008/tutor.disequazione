@@ -1,0 +1,333 @@
+:root{
+  --bg:#0b1220;
+  --card:#111b2e;
+  --text:#e8eefc;
+  --muted:#b9c6e6;
+  --accent:#6ea8ff;
+  --bad:#ff6b6b;
+  --good:#51e08a;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, Arial, sans-serif;
+  background: linear-gradient(180deg, #070b14, var(--bg));
+  color:var(--text);
+  padding: 18px;
+}
+
+.card{
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+}
+
+.top h1{margin:0 0 6px}
+.subtitle{margin:0 0 12px;color:var(--muted)}
+
+.box{
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.math{
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.18);
+  font-size: 1.08rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+.math.big{ font-size: 1.15rem; }
+
+.explain{color:var(--muted); line-height: 1.55}
+.question{margin: 8px 0 12px; color: var(--muted)}
+.hint{margin: 8px 0 12px; color: var(--muted); line-height: 1.4}
+.qtitle{ margin-top: 16px; margin-bottom: 6px; }
+
+/* ---- BADGES (più leggibili) ---- */
+.badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 10px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  letter-spacing: .1px;
+}
+
+.badge.warn,
+.badge.ok,
+.badge.info{ font-weight: 700; }
+
+.badge.warn{
+  border-color: rgba(255,107,107,.55);
+  background: rgba(255,107,107,.10);
+}
+.badge.ok{
+  border-color: rgba(81,224,138,.55);
+  background: rgba(81,224,138,.10);
+}
+.badge.info{
+  border-color: rgba(110,168,255,.55);
+  background: rgba(110,168,255,.10);
+}
+
+/* ---- Regole rapide in griglia ---- */
+.rulesGrid{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.badge.tag{
+  justify-content: center;
+  white-space: nowrap;
+  min-width: 128px;
+}
+
+.rulesGrid .badge:not(.tag){
+  white-space: normal;
+  line-height: 1.25;
+}
+
+/* ---- Modalità tutorial/quiz ---- */
+.modeWrap input[type="radio"]{
+  position:absolute;
+  left:-9999px;
+}
+
+.tutorialMode, .quizMode{ display:none; }
+
+#modeTutorial:checked ~ .tutorialMode{ display:block; }
+#modeQuiz:checked ~ .quizMode{ display:block; }
+
+.modeTitle{ margin: 4px 0 6px; }
+.modeSub{ margin: 0 0 10px; color: var(--muted); }
+
+.lockNote{
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--muted);
+}
+
+/* ---- Wizard / Pager ---- */
+.wizard input[type="radio"]{
+  position:absolute;
+  left:-9999px;
+}
+
+.pager{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom: 12px;
+}
+
+.chip{
+  cursor:pointer;
+  user-select:none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
+.chip:hover{ border-color: rgba(110,168,255,.65); }
+.chipFinal{ border-color: rgba(110,168,255,.55); }
+
+/* evidenzia chip attivo (quiz) */
+#page1:checked ~ .pager label[for="page1"],
+#page2:checked ~ .pager label[for="page2"],
+#page3:checked ~ .pager label[for="page3"],
+#page4:checked ~ .pager label[for="page4"],
+#page5:checked ~ .pager label[for="page5"],
+#page6:checked ~ .pager label[for="page6"],
+#page7:checked ~ .pager label[for="page7"]{
+  border-color: rgba(110,168,255,.95);
+  box-shadow: 0 0 0 3px rgba(110,168,255,.18);
+}
+
+/* evidenzia chip attivo (tutorial) */
+#tpage1:checked ~ .pager label[for="tpage1"],
+#tpage2:checked ~ .pager label[for="tpage2"],
+#tpage3:checked ~ .pager label[for="tpage3"],
+#tpage4:checked ~ .pager label[for="tpage4"],
+#tpage5:checked ~ .pager label[for="tpage5"],
+#tpage6:checked ~ .pager label[for="tpage6"],
+#tpage7:checked ~ .pager label[for="tpage7"]{
+  border-color: rgba(110,168,255,.95);
+  box-shadow: 0 0 0 3px rgba(110,168,255,.18);
+}
+
+/* ---- Pages switching ---- */
+.wizard .page{ display:none; }
+
+/* quiz pages */
+#page1:checked ~ .pages #p1{ display:block; }
+#page2:checked ~ .pages #p2{ display:block; }
+#page3:checked ~ .pages #p3{ display:block; }
+#page4:checked ~ .pages #p4{ display:block; }
+#page5:checked ~ .pages #p5{ display:block; }
+#page6:checked ~ .pages #p6{ display:block; }
+#page7:checked ~ .pages #finale{ display:block; }
+
+/* tutorial pages */
+#tpage1:checked ~ .tpages #tp1{ display:block; }
+#tpage2:checked ~ .tpages #tp2{ display:block; }
+#tpage3:checked ~ .tpages #tp3{ display:block; }
+#tpage4:checked ~ .tpages #tp4{ display:block; }
+#tpage5:checked ~ .tpages #tp5{ display:block; }
+#tpage6:checked ~ .tpages #tp6{ display:block; }
+#tpage7:checked ~ .tpages #tp7{ display:block; }
+
+/* ---- Quiz (solo CSS) ---- */
+.quiz input{
+  position:absolute;
+  left:-9999px;
+}
+
+.opt{
+  display:block;
+  cursor:pointer;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  margin: 10px 0 0;
+}
+
+.opt:hover{ border-color: rgba(110,168,255,.6); }
+
+.fb{
+  display:none;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.22);
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.fb.good{ border-color: rgba(81,224,138,.55); }
+.fb.bad{ border-color: rgba(255,107,107,.55); }
+
+.quiz input:checked + .opt + .fb{ display:block; }
+
+/* ---- Actions ---- */
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top: 16px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor:pointer;
+  background: var(--accent);
+  color: #071025;
+  font-weight: 900;
+  border: none;
+}
+
+.btn.secondary{
+  background: rgba(255,255,255,.1);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+/* ---- SVG ---- */
+.svgWrap{
+  margin-top: 10px;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.12);
+}
+
+.svgBg{ fill: rgba(0,0,0,.08); }
+.axis{ stroke: rgba(255,255,255,.30); stroke-width: 3; }
+.circle{ fill:none; stroke: rgba(255,255,255,.22); stroke-width: 3; }
+
+.yhalf{
+  stroke: rgba(81,224,138,.75);
+  stroke-width: 3;
+  stroke-dasharray: 8 7;
+}
+
+.arc{
+  fill:none;
+  stroke: rgba(110,168,255,.95);
+  stroke-width: 10;
+  stroke-linecap: round;
+  filter: drop-shadow(0px 2px 6px rgba(110,168,255,.25));
+}
+
+.pt{ fill: rgba(110,168,255,.98); }
+.label{ fill: rgba(185,198,230,.95); font-size: 14px; }
+.labelStrong{ fill: rgba(255,255,255,.92); font-size: 15px; font-weight: 800; }
+.legendBg{ fill: rgba(0,0,0,.25); stroke: rgba(255,255,255,.08); }
+.legendLine{ stroke: rgba(110,168,255,.95); stroke-width: 6; stroke-linecap: round; }
+.legendText{ fill: rgba(185,198,230,.95); font-size: 13px; }
+
+/* ---- Credits ---- */
+.credits{
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--muted);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 560px){
+  .rulesGrid{ grid-template-columns: 1fr; }
+  .badge.tag{ min-width: unset; justify-content: flex-start; }
+}
+
+@media (max-width: 480px){
+  body{ padding: 12px; }
+  .top h1{ font-size: 1.35rem; }
+  .subtitle{ font-size: 0.95rem; }
+  .badge{ font-size: 0.95rem; padding: 10px 12px; }
+  .btn{ width: 100%; }
+  .svgWrap svg{ height: 280px; }
+}
